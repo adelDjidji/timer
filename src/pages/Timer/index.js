@@ -23,15 +23,11 @@ function Timer() {
 
 
   setTimeout(() => {
-    if (isCounting && counter > 0) {
-      setCounter(counter - 1)
-    }
     if(!isCounting && counter>0 && counter<60){
       setCounter(60)
+    }else if (isCounting && counter > 0) {
+      setCounter(counter - 1)
     }
-    console.log("ss");
-    console.log("isCounting", isCounting);
-    console.log("counter", counter);
   },1000);
 
   const handleStart = () => {
@@ -42,16 +38,7 @@ function Timer() {
   const handleReset = () => {
     if (isCounting) {
       setisCounting(false)
-      setCounter(60)
     }
-
-    // setInterval(() => {
-    //   if(isCounting){
-    //     setisCounting(false)
-    //   setCounter(60)
-    //   }
-    //   console.log("interval");
-    // },1000);
   }
 
   // Render

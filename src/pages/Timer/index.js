@@ -23,9 +23,9 @@ function Timer() {
 
 
   setTimeout(() => {
-    if(!isCounting && counter>0 && counter<60){
+    if (!isCounting && counter > 0 && counter < 60) {
       setCounter(60)
-    }else if (isCounting && counter > 0) {
+    } else if (isCounting && counter > 0) {
       setCounter(counter - 1)
     }
   },1000);
@@ -48,8 +48,8 @@ function Timer() {
 
       <div className="aura-page-content">
         <div className="aura-timer-clock">{
-          counter === 60 ?
-            "1:00" :
+          (counter === 60 || (!isCounting && counter < 60)) ?
+            "0:00" :
             `0:${counter < 10 ? '0' + counter : counter
             }`}</div>
         {counter <= 0 ? <Expired /> : null}

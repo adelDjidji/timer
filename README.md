@@ -1,9 +1,3 @@
-# Aura Code Challenge
-
-This challenge will allow you to demonstrate your knowledge of React and modeling data.
-It is intended to replicate development stories that could come up on the job.
-After you submit the completed project we will schedule a follow-up code review.
-
 ## Getting started
 
 - This bundle includes a React application.
@@ -32,11 +26,8 @@ After you submit the completed project we will schedule a follow-up code review.
 ### Acceptance Criteria
 
 - Replace the imported data file with 'global' state to populate the `Record` components.
-- `util/mockFetch` contains a `mockFetch` utility which you should use to retrieve the data and store in state.
-- You have three options for state management:
-  1. Redux, which has already been configured for you.
-  2. `useReducer` hook, which is preferable if you do not choose Redux.
-  3. React Context
+- `util/mockFetch` contains a `mockFetch` utility which you should use to retrieve the data and store in state - Redux, which has already been configured for you.
+
 - The data should be stored in an extensible manner. Imagine if we had to store hundreds of records, not just ten.
 - If you choose Redux all your work should live in `src/services/records`. Some notes on the service:
   - The `index.js` file must export a valid Redux reducer named `records`. A placeholder has been added for you.
@@ -67,8 +58,6 @@ After you submit the completed project we will schedule a follow-up code review.
 ## Submitting your work
 
 - Commit changes as you normally would on a feature branch.
-- Push to GitHub or another git service. If you create a private GitHub repo please add "okanthony" as a viewer.
-- Share the repository link with us.
 
 ## Package Scripts
 

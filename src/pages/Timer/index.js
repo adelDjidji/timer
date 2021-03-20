@@ -19,8 +19,25 @@ function Expired() {
 function Timer() {
   // Hooks - state
   const [counter, setCounter] = useState(0);
+  const [isCounting, setisCounting] = useState(false);
 
-  // TODO: implement counter...
+  
+  setTimeout(() => {
+    if(isCounting && counter>0){
+      setCounter(counter-1)
+    }
+    console.log("ss");
+  }, 1000);
+
+  const handleStart = () => {
+    setCounter(60)
+    setisCounting(true) 
+  }
+  
+  const handleReset = () => {
+    setisCounting(false) 
+    setCounter(60)
+  }
 
   // Render
   return (
@@ -28,12 +45,12 @@ function Timer() {
       <h1>Timer</h1>
 
       <div className="aura-page-content">
-        <div className="aura-timer-clock">0:00</div>
+        <div className="aura-timer-clock">{counter ===60 ? "1:00" : `0:${counter<10? '0'+counter : counter}`}</div>
         {counter <= 0 ? <Expired /> : null}
 
         <div className="aura-timer-buttons">
-          <Button>Start</Button>
-          <Button>Reset</Button>
+          <Button onClick={handleStart}>Start</Button>
+          <Button onClick={handleReset}>Reset</Button>
         </div>
       </div>
     </div>

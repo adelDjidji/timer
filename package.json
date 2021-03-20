@@ -1,5 +1,5 @@
 {
-  "name": "aura-challenge-react-timer-redux-records",
+  "name": "react-timer-redux-records",
   "version": "0.0.0",
   "main": "src/index.js",
   "scripts": {

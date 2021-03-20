@@ -1,14 +1,39 @@
-.error-emoji{
-    font-size: 20pt;
-    color: #FF9800;
+.error-emoji {
+  font-size: 20pt;
+  color: #ff9800;
 }
-.reload-link{
-    color: #2196F3;
-    font-weight: bold;
-    transition: all ease .4s;
-    padding: 0.7em 1.4em;
-    border-radius: 5pt;
-    &:hover{
-        background-color: #9e9e9e26;
+.reload-link {
+  color: #2196f3;
+  font-weight: bold;
+  transition: all ease 0.4s;
+  padding: 0.7em 1.4em;
+  border-radius: 5pt;
+  &:hover {
+    background-color: #9e9e9e26;
+  }
+}
+a{
+    outline: none !important;
+}
+.pagination {
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-top: 4em;
+    li{
+        a{
+            color: #2196f3;
+        }
+        padding: 0.7em;
+        &.selected{
+            background-color: #9e9e9e1c;
+            border: solid 1px #0088f721;
+            border-radius: 5pt;
+        }
+        &.disabled a{
+            color: rgba(128, 128, 128, 0.637);
+        }
     }
+  }
 }

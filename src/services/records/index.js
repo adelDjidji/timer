@@ -1,13 +1,28 @@
-export const records = (state={records:[], loading:false, errors:[]}, action) => {
+// records reducer
+export const records = (state = { records: [],total: 0,loading: false,errors: [] },action) => {
     console.log(action.type);
-    switch(action.type){
+    switch (action.type) {
         case 'LOAD_DATA':
-            
-            return {...state, loading:true}
+            return { 
+                ...state,
+                loading: true,
+                total:0
+            }
         case 'LOAD_SUCCESS':
-            return {...state, loading:false, records:action.payload, errors:[]}
+            return { 
+                ...state,
+                loading: false,
+                records: action.payload.data,
+                total: action.payload.count,
+                errors: [] 
+            }
         case 'LOAD_FAIL':
-            return {...state, loading:false, errors:action.payload}
-        default : return state
+            return { 
+                ...state,
+                loading: false,
+                errors: action.payload,
+                total:0
+            }
+        default: return state
     }
 };

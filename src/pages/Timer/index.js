@@ -22,17 +22,23 @@ function Timer() {
   const [isCounting,setisCounting] = useState(false);
 
 
-  setTimeout(() => {
+  if(isCounting){
+    setTimeout(() => {
     if (!isCounting && counter > 0 && counter < 60) {
       setCounter(60)
     } else if (isCounting && counter > 0) {
       setCounter(counter - 1)
     }
   },1000);
+  }
+  
 
   const handleStart = () => {
-    setCounter(60)
-    setisCounting(true)
+    if (counter !== 60) {
+      setCounter(60)
+      setisCounting(true)
+    }
+
   }
 
   const handleReset = () => {
@@ -52,11 +58,11 @@ function Timer() {
             "0:00" :
             `0:${counter < 10 ? '0' + counter : counter
             }`}</div>
-        {counter <= 0 ? <Expired /> : null}
+        {(counter <= 0|| !isCounting) ? <Expired /> : null}
 
         <div className="aura-timer-buttons">
-          <Button onClick={handleStart}>Start</Button>
-          <Button onClick={handleReset}>Reset</Button>
+          <Button disabled={isCounting} onClick={handleStart}>Start</Button>
+          <Button disabled={!isCounting} onClick={handleReset}>Reset</Button>
         </div>
       </div>
     </div>

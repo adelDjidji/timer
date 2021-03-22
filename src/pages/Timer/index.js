@@ -36,15 +36,19 @@ function Timer() {
   const handleStart = () => {
     if (counter !== 60) {
       setCounter(60)
-      setisCounting(true)
+      // setisCounting(true)
     }
+    setisCounting(true)
 
   }
 
   const handleReset = () => {
     if (isCounting) {
+      
       setisCounting(false)
     }
+      setCounter(60)
+    
   }
 
   // Render
@@ -54,15 +58,15 @@ function Timer() {
 
       <div className="aura-page-content">
         <div className="aura-timer-clock">{
-          (counter === 60 || (!isCounting && counter < 60)) ?
-            "0:00" :
+          (counter === 60 || (!isCounting&&counter<=60&&counter>0)) ?
+            "1:00" :
             `0:${counter < 10 ? '0' + counter : counter
             }`}</div>
         {(counter <= 0|| !isCounting) ? <Expired /> : null}
 
         <div className="aura-timer-buttons">
-          <Button disabled={isCounting} onClick={handleStart}>Start</Button>
-          <Button disabled={!isCounting} onClick={handleReset}>Reset</Button>
+          <Button disabled={isCounting || counter ===0} onClick={handleStart}>Start</Button>
+          <Button disabled={!isCounting && counter !==0} onClick={handleReset}>Reset</Button>
         </div>
       </div>
     </div>
